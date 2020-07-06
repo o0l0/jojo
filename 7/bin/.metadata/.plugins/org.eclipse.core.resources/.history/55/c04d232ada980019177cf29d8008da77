@@ -1,0 +1,28 @@
+package Yhxt;
+
+import java.awt.Container;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Xgg {
+
+		public Xgg()
+		{
+			JFrame c=new JFrame("此处有监控");
+	
+			c.setSize(400,180);
+				c.setLocationRelativeTo(null);//窗口居中
+					c.setVisible(true);
+				
+			JLabel y3=new JLabel(new ImageIcon("C:/Users/Administrator/Desktop/java！/7/src/11/src/80.gif"));
+			y3.setSize(400,180);
+			c.getLayeredPane().add(y3,new Integer(Integer.MIN_VALUE));
+			y3.setBounds(0,0,400,180);
+			Container contain=c.getContentPane();
+			((JPanel)contain).setOpaque(false);
+			//c.add(y3);
+		}
+}

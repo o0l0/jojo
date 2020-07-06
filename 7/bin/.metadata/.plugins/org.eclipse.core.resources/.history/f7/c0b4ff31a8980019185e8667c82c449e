@@ -1,0 +1,26 @@
+package Yhxt;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Ck extends JFrame{
+	public Ck() {
+		JFrame t=new JFrame("此处有监控");
+			
+			t.setSize(400,200);
+			t.setLocationRelativeTo(null);//窗口居中
+			t.setVisible(true);
+			JPanel p2=new JPanel();
+			t.add(p2,BorderLayout.CENTER);
+			Dwj s=new Dwj();
+			JTextField x1=new JTextField("s",8);
+			p2.add(x1);
+			
+		
+	}
+
+}

@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=gb2312"%>
+<%@ page import="com.sun.rowset.*" %>
+<jsp:useBean id="fy" class="mybean.date.FenYe" scope="session"/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+<table border="1">
+<tr><td>用户名</td><td>密码</td></tr>
+<%
+boolean boo=true;
+int DSpage=fy.getDSpage();
+int Zgpage=fy.getZgpage();
+int Dqpage=fy.getDqpage();
+CachedRowSetImpl rs=fy.getRowset();
+if(rs==null){
+	out.print("没有查询到记录");
+	boo=false;
+	return;
+}
+rs.last();
+int Zghpage=rs.getRow();
+if(Zghpage%DSpage==0)
+{
+	Zgpage=Zghpage%DSpage;
+}else
+	Zgpage=Zghpage%DSpage+1;
+fy.setZgpage(Zgpage);
+int index=(fy.getDqpage()-1)*DSpage+1;
+rs.absolute(index);
+for(int i= index;i<index+DSpage&&boo;i++)
+{
+	String id=rs.getString(1);
+	String name=rs.getString(2);
+	String pwd=rs.getString(3);
+	out.print("<tr>");
+	out.print("<td>"+name+"</td>");
+	out.print("<td>"+pwd+"</td>");
+	out.print("</tr>");
+	boo=rs.next();
+}
+
+%>
+
+</table>
+<br/>
+每页显示<jsp:getProperty property="DSpage" name="fy"/>条记录
+<br/>
+当前是第<jsp:getProperty property="Zgpage" name="fy"/>页
+
+
+
+
+
+
+
+
+</center>
+</body>
+</html>

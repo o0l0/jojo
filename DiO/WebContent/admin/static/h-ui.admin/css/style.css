@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* 你自己的样式 */
+
+
+body
+{
+	
+	font-size: 20px;
+	font-family:隶书;
+	
+}
+
+#menu-admin{
+	background-color:yellow;
+
+}
+#menu-user
+{
+    background-color:orange;
+}
+#wdnmd
+{
+    background-color:#80ffff;
+    font-size: 50px;
+}
+
+#menu-product,#menu-orders,#menu-comments
+{
+    background-color:#ff80ff;
+}
+
+.navbar navbar-fixed-top
+
+{
+	font-size: 20px;
+	font-family:隶书;
+	
+}	
+.navbar
+
+{
+	font-size: 50px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

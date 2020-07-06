@@ -1,0 +1,9 @@
+package cheshi;
+
+public class Zhs {
+	public static void main(String[] args){
+		// TODO Auto-generated method stub
+		Dyy c =new Dyy();
+	//ÃÌº”Õº∆¨
+}
+}

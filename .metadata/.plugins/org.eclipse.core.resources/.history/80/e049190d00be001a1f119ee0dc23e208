@@ -1,0 +1,115 @@
+package sjk;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.junit.Test;
+
+public class upDate {
+	
+	public void upDate(String sql,Object ...args) throws Exception
+	{
+		//获取数据库连接
+		Connection con = ConnectionText.sjk();
+		//预编译
+		PreparedStatement ps = con.prepareStatement(sql);
+		for(int i=0;i<args.length;i++)
+		{
+			ps.setObject(i+1, args[i]);
+			System.out.print("args[i]是"+args[i]);
+		}
+		ps.executeUpdate();
+		ConnectionText.closeResourec(con, ps);
+	}
+
+	//考虑事务
+	public void upDate2(Connection con,String sql,Object ...args) throws Exception
+	{
+		//获取数据库连接
+				//预编译
+		PreparedStatement ps = con.prepareStatement(sql);
+		for(int i=0;i<args.length;i++)
+		{
+			ps.setObject(i+1, args[i]);
+			System.out.print("args[i]是"+args[i]);
+		}
+		ps.executeUpdate();
+		con.setAutoCommit(true);
+		ConnectionText.closeResourec(null, ps);
+	}
+	
+	
+	public void up()
+	{
+		String sql="delete from share where id=?";
+		try {
+			upDate(sql,2);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public void up2()
+	{
+		String sql="update share set name=? where id=?";
+		try {
+			upDate(sql,"吃饭",1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	public void up3()
+	{
+		Connection con=null;
+		try {
+		 con=ConnectionText.sjk();
+		 //取消自动提交
+		con.setAutoCommit(false);
+			String sql="update oo set money=money-100 where name=?";
+			
+				upDate2(con,sql,"aa");
+			
+				System.out.print(10/0);
+				String sql2="update oo set money=money+100 where name=?";
+				upDate2(con,sql2,"bb");
+		//提交数据
+				con.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				//回滚
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}finally {
+			ConnectionText.closeResourec(con, null);
+		
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

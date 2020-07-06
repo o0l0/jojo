@@ -1,0 +1,24 @@
+package Yhxt;
+
+import java.awt.Container;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Xgg {
+
+			JFrame c=new JFrame("此处有监控");
+			public Xgg(){
+				
+				
+				c.setSize(400,180);
+				c.setLocationRelativeTo(null);//窗口居中
+					c.setVisible(true);
+				JPanel x=new JPanel();
+			JLabel y3=new JLabel(new ImageIcon("C:/Users/Administrator/Desktop/java！/7/src/11/src/jgk.jpg"));
+			x.add(y3);
+			//this.add(y3);
+		}
+}

@@ -1,0 +1,13 @@
+package cshi;
+import java.awt.*;
+import javax.swing.*;
+public class  Wdnmd{
+public static void main(String[] args){
+JFrame ck=new JFrame("wdnmd");
+ck.setSize(500,300);
+ck.setVisible(true);
+ck.setLayout(new FlowLayout(FlowLayout.LEFT,20,30));
+ck.add(new JButton("起了吗"));
+ck.add(new JButton("我起了啊，一枪秒了，有什么好说的！"));
+}
+}

@@ -1,0 +1,50 @@
+package Bdx;
+import java.util.Scanner;
+
+import Max;
+ class Qui{
+	final double PI=3.1415926;
+	public double Qui(double r)
+	{
+		double s=0;
+		s=4*r*PI*PI;
+		return s;
+	}
+}
+ class Yuan{
+	final double PI=3.1415926;
+	public double Yuan(double r,double h)
+	{
+		double s=0;
+		s=2*PI*r*h+PI*r*r*2;
+		return s;
+	}
+}
+ class Xxd implements Max{
+		public void Max(double s1,double s2)
+		{
+			if(s1>s2)System.out.println("球的面积大");
+			else System.out.println("圆柱的面积大");
+		}
+ }
+public class Bdx {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner y=new Scanner(System.in);
+		System.out.println("请输入球的半径");
+		double x1=y.nextDouble();
+		System.out.println("圆柱的半径");
+		double x2=y.nextDouble();
+		System.out.println("圆柱的高");
+		double x3=y.nextDouble();
+		Qui r1=new Qui();
+		double s1=r1.Qui(x1);
+		Yuan r2=new Yuan();
+		double s2=r2.Yuan(x2, x3);
+			Xxd c=new Xxd();
+			c.Max(s1,s2);
+		
+	}
+
+}

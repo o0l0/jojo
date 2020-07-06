@@ -1,0 +1,34 @@
+package mybean.date;
+import com.sun.rowset.*;
+public class FenYe {
+
+int DSpage=1;//每页显示
+int Zgpage=1;//总共几页
+int Dqpage=1;//当前第几页
+public int getDSpage() {
+	return DSpage;
+}
+public void setDSpage(int dSpage) {
+	DSpage = dSpage;
+}
+public int getZgpage() {
+	return Zgpage;
+}
+public void setZgpage(int zgpage) {
+	Zgpage = zgpage;
+}
+public int getDqpage() {
+	return Dqpage;
+}
+public void setDqpage(int dqpage) {
+	Dqpage = dqpage;
+}
+public CachedRowSetImpl getRowset() {
+	return rowset;
+}
+public void setRowset(CachedRowSetImpl rowset) {
+	this.rowset = rowset;
+}
+
+CachedRowSetImpl rowset=null;
+}

@@ -1,0 +1,21 @@
+package yhxt;
+import java.util.Scanner;
+public class Zhs {
+	public static void main(String[] args) {
+		/*Scanner x=new Scanner(System.in);
+		String x1=x.next();*/
+		Bank.yhmc="Íú²ÆÒøÐÐ";
+		Bank.hy();
+		Scanner x=new Scanner(System.in);
+		String x1=x.next();
+		String x2=x.next();
+		double x3=x.nextInt();
+		Bank bank=new Bank(x1,x2,x3);
+		bank.ck(100);
+		bank.qk("321",100);
+		bank.qk("123",100);
+		bank.qk("123",1000000000);
+		Bank.gun();
+	}
+
+}

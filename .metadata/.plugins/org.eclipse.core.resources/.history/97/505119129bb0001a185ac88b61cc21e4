@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试01</title>
+</head>
+<body>
+<form action="" method="get">
+<table>
+<tr>
+	<td>用户名:</td>
+	<td><input type="text" name="name" value="冲冲冲"/></td>
+</tr>
+
+<tr>
+	<td>密码:</td>
+	<td><input type="password" name="password" value="嘤嘤嘤"/></td>
+</tr>
+
+<tr>
+	<td>性别:</td>
+	<td><input type="radio" name="sex" value="boy"/></td>
+	<td><input type="radio" name="sex" value="girl"></td>
+</tr>
+
+<tr>
+	<td>爱好:</td>
+	<td><input type="checkbox" name="love" value="打游戏"/>打游戏</td>
+	<td><input type="checkbox" name="love"  value="快乐水">快乐水</td>
+	<td><input type="checkbox" name="love"  value="喜羊羊">喜羊羊</td>
+</tr>
+
+<tr>
+	<td>国籍:</td>
+	<td><select>
+		<option>---请选择籍贯---</option>
+		<option selected="selected">福建</option>
+		<option>云南</option>
+		<option>北京</option>
+	</select></td>
+</tr>
+
+<tr>
+	<td>我的理想:</td>
+	<textarea rows="20" cols="40">这个社会，这种程度的你跟我讲理想？？！！！</textarea>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

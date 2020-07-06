@@ -1,0 +1,81 @@
+package myservlet.admin;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.List;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.sun.rowset.CachedRowSetImpl;
+
+import mybean.date.FenYe;
+import mybean.date.goodsbean;
+import sjkjh.Query;
+
+/**
+ * Servlet implementation class lookServletsp
+ */
+public class lookServletsp extends HttpServlet {
+	
+	public void init(ServletConfig config) throws ServletException{
+		super.init(config);
+	}
+
+	
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		doGet(request, response);
+		
+		goodsbean goods = new goodsbean();
+
+		String good_id=goods.getGood_id();
+		String good_name=goods.getGood_name();
+		String good_made=goods.getGood_made();
+		Float good_price=goods.getGood_price();
+		String good_message=goods.getGood_message();
+		//System.out.print("======"+good_message);
+		int good_sl=goods.getGood_sl();
+		String good_print=goods.getGood_print();
+		int id=goods.getId();
+		
+		String sql2="select * from goods";
+		Query query = new Query();
+		List<goodsbean> list=query.getForlist(goodsbean.class, sql2,good_id,good_name,good_made,good_price,good_message,good_sl,good_print,id);
+		
+
+		
+		CachedRowSetImpl rowset=null;
+		try {
+			rowset=new CachedRowSetImpl();
+			rowset.populate((ResultSet) list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		FenYe fy=new FenYe();
+		HttpSession session=request.getSession(true);
+		session.setAttribute("fyy", fy);
+		fy.setRowset(rowset);
+		
+		response.sendRedirect("admin/goods.jsp");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

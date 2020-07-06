@@ -1,0 +1,30 @@
+package Yhxt;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Ck extends JFrame{
+	public Ck() {
+		JFrame t=new JFrame("此处有监控");
+			
+			t.setSize(400,200);
+			t.setLocationRelativeTo(null);//窗口居中
+			t.setVisible(true);
+			
+			//JPanel p2=new JPanel();
+			t.setLayout(new GridLayout(2,1,10,5));
+			Dwj s=new Dwj();
+			JButton b1=new JButton("已输入金额");
+			JTextField x1=new JTextField("s",8);
+			t.add(x1);
+			
+		
+	}
+
+}

@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+body{
+	color:#ff8040;
+	backgroud-color:#008000;
+	
+	
+}

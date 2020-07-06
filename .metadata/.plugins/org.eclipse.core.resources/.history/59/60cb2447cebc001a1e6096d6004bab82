@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/cn/itcast/chapter10/example/BaseDao.java=UTF-8
+encoding//src/cn/itcast/chapter10/example/Example01.java=UTF-8
+encoding//src/cn/itcast/chapter10/example/Example02.java=UTF-8
+encoding//src/cn/itcast/chapter10/example/Example03.java=UTF-8
+encoding//src/cn/itcast/chapter10/example/Example04.java=UTF-8
+encoding//src/cn/itcast/chapter10/example/JDBCUtils.java=GBK
+encoding//src/cn/itcast/chapter10/example/ResultSetTest1.java=UTF-8
+encoding//src/cn/itcast/chapter10/example/ResultSetTest2.java=UTF-8
+encoding//src/cn/itcast/jdbc/demo/DBUtilsDao.java=UTF-8
+encoding//src/dbcpconfig.properties=UTF-8

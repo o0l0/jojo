@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+backgroud-color:#008000;
+}
+table
+{
+	width:1500px;
+	border:10px solid #80ff80;
+	background-color: #80ffff;
+	table-layout:fixed;
+}
+td{
+	width:400px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+tr{
+	width:400px;
+}

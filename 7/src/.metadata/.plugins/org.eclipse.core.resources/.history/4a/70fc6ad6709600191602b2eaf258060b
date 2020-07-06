@@ -1,0 +1,48 @@
+package Yhxt;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+
+public class Dey extends JFrame{
+	public Dey()
+	{
+		JFrame t=new JFrame("此处有监控");
+		t.setSize(500,100);
+		t.setVisible(true);
+		t.setLayout(new BorderLayout(10,10));
+		t.add(new JLabel("    "),BorderLayout.EAST);
+		t.add(new JLabel("    "),BorderLayout.WEST);
+		//t.add(new JLabel("    "),BorderLayout.CENTER);
+		t.add(new JLabel("    "),BorderLayout.SOUTH);
+		JMenuBar j=new JMenuBar();
+		t.add(j,BorderLayout.NORTH);
+		
+		j.setLayout(new GridLayout(1,4,10,5));
+		t.add(j);
+		JMenu z1=new JMenu("---存取款---");
+		JMenu z2=new JMenu("--修改密码--");
+		JMenu z3=new JMenu("--人工服务--");
+		JMenu z4=new JMenu("-----退出-----");
+		j.add(z1);
+		j.add(z2);
+		j.add(z3);
+		j.add(z4);
+		JMenuItem k1=new JMenuItem("存款");
+		JMenuItem k2=new JMenuItem("取款");
+/*		JPanel p2=new JPanel();
+		t.add(p2,BorderLayout.CENTER);
+		p2.setSize(500,300);*/
+		z1.add(k1);z1.add(k2);
+		
+		
+	}
+
+
+}

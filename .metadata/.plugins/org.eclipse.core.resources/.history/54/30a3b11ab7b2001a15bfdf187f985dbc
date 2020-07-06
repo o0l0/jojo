@@ -1,0 +1,93 @@
+<%@ page language="java" contentType="text/html; charset=gb2312"%>
+<%@ page import="com.sun.rowset.*" %>
+<jsp:useBean id="fya" class="mybean.date.FenYea" scope="session"/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head> 
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+<jsp:setProperty property="dqye" name="fya" param="change"/>
+<jsp:setProperty property="mye" name="fya" param="text"/>
+<table border="1">
+<tr><td>用户名</td><td>密码</td><td>操作1</td><td>操作2</td></tr>
+<%
+boolean boo=true;
+int Mye=fya.getMye();
+int Yshu=fya.getYshu();
+int Dqye=fya.getDqye();
+CachedRowSetImpl rs=fya.getRowset();
+out.print(rs);
+if(rs==null){
+	out.print("没有查询到记录");
+	boo=false;
+	return;
+}
+rs.last();
+int Zghpage=rs.getRow();
+if(Zghpage%Mye==0)
+{
+	Yshu=Zghpage/Mye;
+	//System.out.print(Yshu);
+}else
+	Yshu=Zghpage/Mye+1;
+fya.setYshu(Yshu);
+
+if(Yshu>=1)
+	if(fya.getDqye()<1)
+		fya.setDqye(fya.getYshu());
+	if(fya.getDqye()>fya.getYshu())
+		fya.setDqye(1);
+
+
+
+int index=(fya.getDqye()-1)*Mye+1;
+rs.absolute(index);
+for(int i=index;i<index+Mye&&boo;i++)
+{
+	
+	String id=rs.getString(1);
+	String name=rs.getString(2);
+	String delete="<form action='../delete' method='post'>"+"<input type='hidden' name='id' value="+id+" />"+"<input type='submit' value='删除'/>"+"</form>";
+	String update="<form action='update.jsp' method='post'>"+"<input type='hidden' name='name' value="+name+" />"+"<input type='submit' value='更新'/>"+"</form>";
+
+	out.print("<tr>");
+	out.print("<td>"+name+"</td>");
+	out.print("<td>"+delete+"</td>");
+    out.print("<td>"+update+"</td>");
+	out.print("</tr>");
+	boo=rs.next();
+}
+
+%>
+
+</table>
+<br/>
+每页显示<jsp:getProperty property="mye" name="fya"/>条记录
+<br/>
+当前是第<jsp:getProperty property="dqye" name="fya"/>页,总共有<jsp:getProperty property="yshu" name="fya"/>页记录
+<br/>
+<table>
+<tr>
+<td><form action=""><input type="hidden" name="change" value="<%=fya.getDqye()-1%>"/><input type="submit" value="上一页"/> </form> </td>
+<td><form action=""><input type="hidden" name="change" value="<%=fya.getDqye()+1%>"/><input type="submit" value="下一页"/></form> </td>
+</tr>
+<tr>
+<td> <form action="">每页显示 <input type="text" name="text" value="" size="3"  />条记录<input type="submit" value="确定"/>  </form> </td>
+<td> <form action="">输入页码 <input type="text" name="change" value="" size="3"  /><input type="submit" value="确定"/>  </form> </td>
+</tr>
+
+
+</table>
+
+
+
+
+
+
+
+
+</center>
+</body>
+</html>

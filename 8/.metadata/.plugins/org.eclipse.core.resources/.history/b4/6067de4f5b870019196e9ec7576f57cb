@@ -1,0 +1,12 @@
+import java.io.*;
+public class Wj {
+		public static void main(String[] args) throws IOException {
+			FileWriter wj=new FileWriter("wj.txt");
+			String str="wdnmd";
+			wj.write(str);
+			
+		
+		}
+
+
+}

@@ -1,0 +1,9 @@
+import java.io.File;
+public class Wj {
+		public static void main(String[] args) {
+			File wj=new File("WDnmd.txt");
+			System.out.println(wj.getName());
+			System.out.println(wj.getPath());
+			System.out.println(wj.getAbsolutePath());
+		}
+}

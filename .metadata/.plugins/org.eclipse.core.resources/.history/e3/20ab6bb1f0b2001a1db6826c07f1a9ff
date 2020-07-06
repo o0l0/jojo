@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* 你自己的样式 */
+
+
+
+#menu-admin{
+	background-color:yellow;
+
+}
+#menu-user
+{
+    background-color:orange;
+}
+#wdnmd
+{
+    background-color:red;
+}
+
+#menu-product,#menu-orders,#menu-comments
+{
+    background-color:green;
+}
+
+
+

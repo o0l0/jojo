@@ -1,0 +1,12 @@
+package cshi;
+
+import javax.swing.*;
+public class  Wdnmd{
+public static void main(String[] args){
+JFrame ck=new JFrame("wdnmd");
+ck.setSize(500,300);
+ck.setVisible(true);
+JButton anniu1=new JButton("起了吗");
+JButton anniu2=new JButton("一枪秒了，有什么好说的！");
+}
+}

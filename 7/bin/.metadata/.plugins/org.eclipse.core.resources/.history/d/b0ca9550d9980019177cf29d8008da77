@@ -1,0 +1,71 @@
+package Yhxt;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Ye  extends JFrame {
+
+	
+	public Ye() {
+		JFrame t=new JFrame("此处有监控");
+			
+			t.setSize(400,200);
+			t.setLocationRelativeTo(null);//窗口居中
+			t.setVisible(true);
+			JPanel p2=new JPanel();
+			p2.setSize(200,50);
+			t.add(p2,BorderLayout.CENTER);
+			t.add(new Label("               "),BorderLayout.EAST);
+			t.add(new Label("               "),BorderLayout.WEST);
+			t.add(new Label("               "),BorderLayout.NORTH);
+			t.add(new Label("               "),BorderLayout.SOUTH);
+			p2.setLayout(new GridLayout(2,1,10,5));
+			
+			JLabel y3=new JLabel(new ImageIcon("C:/Users/Administrator/Desktop/java！/7/src/11/src/50.jpg"));
+			y3.setSize(400,180);
+			this.getLayeredPane().add(y3,new Integer(Integer.MIN_VALUE));
+			y3.setBounds(0,0,400,180);
+			Container contain=this.getContentPane();
+			((JPanel)contain).setOpaque(false);
+			t.add(y3);
+			
+		/*	Dwj s=new Dwj();//读文件
+			
+			try {
+				s.Dwj(".src/Yhxt/Qian.txt");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+			Dwj s=new Dwj();//读文件
+					String z = null;
+					try {
+						z=s.Dwj("./src/Yhxt/qian.txt");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				//int转String
+			JButton b1=new JButton(z);
+			p2.add(b1);
+			b1.setFont(new Font("华文彩云",Font.PLAIN,25));
+			b1.setBackground(Color.black);
+			b1.setForeground(Color.white);
+
+}
+}

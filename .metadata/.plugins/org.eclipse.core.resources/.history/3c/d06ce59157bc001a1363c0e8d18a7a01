@@ -1,0 +1,131 @@
+<%@ page language="java" contentType="text/html; charset=gb2312"%>
+<% String x=(String)request.getAttribute("value1");
+   String c=(String)request.getAttribute("value2");
+%>
+<%@ page import="com.sun.rowset.*" %>
+<jsp:useBean id="fy" class="mybean.date.FenYe" scope="session"/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head> 
+<link rel="stylesheet" type="text/css" href="./cf.css">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+
+
+<jsp:setProperty property="dqpage" name="fy" param="change"/>
+<jsp:setProperty property="dSpage" name="fy" param="text"/>
+<table border="1" width="100px" align="center">
+<tr><td>用户名</td><td>密码</td><td>操作1</td><td>操作2</td></tr>
+
+<%
+
+String f="gly";
+out.print("********"+x);
+boolean boo=true;
+int DSpage=fy.getdSpage();
+int Zgpage=fy.getZgpage();
+int Dqpage=fy.getDqpage();
+CachedRowSetImpl rs=fy.getRowset();
+if(rs==null){
+	out.print("没有查询到记录");
+	boo=false;
+	return;
+}
+rs.last();
+int Zghpage=rs.getRow();
+if(Zghpage%DSpage==0)
+{
+	Zgpage=Zghpage/DSpage;
+	//System.out.print(Zgpage);
+}else
+	Zgpage=Zghpage/DSpage+1;
+fy.setZgpage(Zgpage);
+
+if(Zgpage>=1)
+	if(fy.getDqpage()<1)
+		fy.setDqpage(fy.getZgpage());
+	if(fy.getDqpage()>fy.getZgpage())
+		fy.setDqpage(1);
+
+
+
+int index=(fy.getDqpage()-1)*DSpage+1;
+rs.absolute(index);
+
+if(x==f)//不能用equals（）不知道为什么
+{
+	out.print("对管理员进行操作时请勿点击与页面有关的内容");
+	for(int i=index;i<index+DSpage&&boo;i++)
+	{
+	
+	String id=rs.getString(1);
+	String name=rs.getString(2);
+	String pwd=rs.getString(3);
+	String delete="<form action='../delete' method='post'>"+"<input type='hidden' name='id' value="+id+" />"+"<input type='submit' value='删除'/>"+"</form>";
+	String update="<form action='update.jsp' method='post'>"+"<input type='hidden' name='name' value="+name+" />"+"<input type='hidden' name='pwd' value="+pwd+" />"+"<input type='submit' value='更新'/>"+"</form>";
+	out.print("<tr>");
+	out.print("<td>"+name+"</td>");
+	out.print("<td>"+pwd+"</td>");
+	out.print("<td>"+delete+"</td>");
+    out.print("<td>"+update+"</td>");
+	out.print("</tr>");
+	boo=rs.next();
+	}
+} else
+{
+
+	//out.print("这是会员的小垃圾");
+	for(int i=index;i<index+DSpage&&boo;i++)
+	{
+	
+	String id=rs.getString(1);
+	String name=rs.getString(2);
+	String pwd=rs.getString(3);
+	String delete="<form action='../delete' method='post'>"+"<input type='hidden' name='id' value="+id+" />"+"<input type='submit' value='删除'/>"+"</form>";
+	String update="<form action='update.jsp' method='post'>"+"<input type='hidden' name='name' value="+name+" />"+"<input type='hidden' name='pwd' value="+pwd+" />"+"<input type='submit' value='更新'/>"+"</form>";
+	out.print("<tr>");
+	out.print("<td>"+name+"</td>");
+	out.print("<td>"+pwd+"</td>");
+	out.print("<td>"+delete+"</td>");
+    out.print("<td>"+update+"</td>");
+	out.print("</tr>");
+	boo=rs.next();
+	
+	}
+	
+	
+} 
+%>
+
+</table>
+
+<br/>
+每页显示<jsp:getProperty property="dSpage" name="fy"/>条记录
+<br/>
+当前是第<jsp:getProperty property="dqpage" name="fy"/>页,总共有<jsp:getProperty property="zgpage" name="fy"/>页记录
+<br/>
+<table>
+<tr>
+<td><form action=""><input type="hidden" name="change" value="<%=fy.getDqpage()-1%>"/><input type="submit" value="上一页"/> </form> </td>
+<td><form action=""><input type="hidden" name="change" value="<%=fy.getDqpage()+1%>"/><input type="submit" value="下一页"/></form> </td>
+</tr>
+<tr>
+<td> <form action="">每页显示 <input type="text" name="text" value="" size="3"  />条记录<input type="submit" value="确定"/>  </form> </td>
+<td> <form action="">输入页码 <input type="text" name="change" value="" size="3"  /><input type="submit" value="确定"/>  </form> </td>
+</tr>
+
+
+</table>
+
+
+
+
+
+
+
+
+</center>
+</body>
+</html>

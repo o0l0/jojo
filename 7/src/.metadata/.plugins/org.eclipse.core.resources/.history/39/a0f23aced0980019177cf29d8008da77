@@ -1,0 +1,21 @@
+package Yhxt;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+public class Dwj {
+	public int Dwj(String s) throws IOException {
+	File wj=new File(s);
+	int[] g=new int[100];
+	FileReader wj2=new FileReader(wj);
+	int x,i=0;
+	while((x=wj2.read())!=-1)
+			{
+		g[i]=x;i++;
+			}
+	return x;
+	
+	//wj2.close();
+	}
+}

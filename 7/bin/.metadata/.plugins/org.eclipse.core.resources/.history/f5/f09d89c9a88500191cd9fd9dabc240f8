@@ -1,0 +1,28 @@
+package cshi;
+import java.awt.*;
+import javax.swing.*;
+public class  Wdnmd{
+public static void main(String[] args){
+JFrame ck=new JFrame("wdnmd");
+ck.setSize(500,500);
+ck.setVisible(true);
+//ck.setLayout(new FlowLayout(FlowLayout.LEFT,20,30));
+ck.setLayout(new GridLayout(4,4));
+ck.add(new JButton("Çå¿Õ"));
+ck.add(new JButton("É¾³ý"));
+ck.add(new JButton("+"));
+ck.add(new JButton("-"));
+ck.add(new JButton("1"));
+ck.add(new JButton("2"));
+ck.add(new JButton("3"));
+ck.add(new JButton("*"));
+ck.add(new JButton("4"));
+ck.add(new JButton("5"));
+ck.add(new JButton("6"));
+ck.add(new JButton("/"));
+ck.add(new JButton("7"));
+ck.add(new JButton("8"));
+ck.add(new JButton("9"));
+ck.add(new JButton("0"));
+}
+}

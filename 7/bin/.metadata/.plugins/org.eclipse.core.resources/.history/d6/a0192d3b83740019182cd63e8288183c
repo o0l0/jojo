@@ -1,0 +1,17 @@
+package yhxt;
+import java.util.Scanner;
+public class Zhs {
+	public static void main(String[] args) {
+		/*Scanner x=new Scanner(System.in);
+		String x1=x.next();*/
+		Bank.yhmc="旺财银行";
+		Bank.hy();
+		Bank bank=new Bank("老王","123",1000000);
+		bank.ck(100);
+		bank.qk("321",100);
+		bank.qk("123",100);
+		bank.qk("123",1000000000);
+		Bank.gun();
+	}
+
+}

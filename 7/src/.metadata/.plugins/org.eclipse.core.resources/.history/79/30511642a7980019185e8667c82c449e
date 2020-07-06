@@ -1,0 +1,20 @@
+package Yhxt;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Ck extends JFrame implements ActionListener{
+	public Ck() {
+		JFrame t=new JFrame("此处有监控");
+			
+			t.setSize(400,200);
+			t.setLocationRelativeTo(null);//窗口居中
+			t.setVisible(true);
+			JTextField x1=new JTextField("请输入账号",8);
+			
+		
+	}
+
+}

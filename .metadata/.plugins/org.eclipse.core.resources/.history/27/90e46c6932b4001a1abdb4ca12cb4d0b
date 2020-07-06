@@ -1,0 +1,43 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<jsp:useBean id="DL" class="cookieBean.cookieBean" scope="session"/>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>登录页面</title>
+    </head>
+    <center><h3>用户登录</h3></center>
+    
+    <body style="text-align: center;">
+  
+    	<form action="cookie" method="post">
+    		<table class="table">
+    			<tr>
+    				<td >用户名：</td>
+    				<td>&nbsp;&nbsp;<input type="text" name="name" id="username" value="${c.getValue()}"/>${errerMsg}</td>
+    			</tr>
+    			<tr>
+    				<td >密码：</td>
+    				<td>&nbsp;&nbsp;<input type="text" name="password" id="password" value="" /></td>
+    			</tr>
+    				<tr>
+    				<td >自动登录时间</td>
+    				<td>
+    					<input type="radio" name="autologin" id="autologin" value="${60*60*24*31}" />一个月
+    					<input type="radio" name="autologin" id="autologin" value="${60*60*24*31*3}" />三个月
+    					<input type="radio" name="autologin" id="autologin" value="${60*60*24*31*6}" />半年
+    					<input type="radio" name="autologin" id="autologin" value="${60*60*24*31*12}" />一年
+    				</td>
+    			</tr>
+    			<tr>
+    				<td  />&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="重置" /></td>
+    			</tr>
+    		</table>
+    	</form>
+    	
+ 	</body>
+</html>

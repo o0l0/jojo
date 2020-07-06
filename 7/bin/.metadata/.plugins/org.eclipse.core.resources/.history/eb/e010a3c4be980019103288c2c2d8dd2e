@@ -1,0 +1,56 @@
+package Yhxt;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Ye  extends JFrame {
+
+	
+	public Ye() {
+		JFrame t=new JFrame("此处有监控");
+			
+			t.setSize(400,200);
+			t.setLocationRelativeTo(null);//窗口居中
+			t.setVisible(true);
+			JPanel p2=new JPanel();
+			p2.setSize(200,50);
+			t.add(p2,BorderLayout.CENTER);
+			t.add(new Label("               "),BorderLayout.EAST);
+			t.add(new Label("               "),BorderLayout.WEST);
+			t.add(new Label("               "),BorderLayout.NORTH);
+			t.add(new Label("               "),BorderLayout.SOUTH);
+			p2.setLayout(new GridLayout(2,1,10,5));
+			
+		/*	Dwj s=new Dwj();//读文件
+			
+			try {
+				s.Dwj(".src/Yhxt/Qian.txt");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+			Dwj s=new Dwj();//读文件
+			int z = 0;
+					try {
+						z=s.Dwj("./src/Yhxt/Qian.txt");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				String a =""+z;//int转String
+			JButton b1=new JButton(a);
+			p2.add(b1);
+			
+
+}
+}

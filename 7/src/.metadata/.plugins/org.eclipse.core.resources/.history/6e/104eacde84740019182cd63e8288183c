@@ -1,0 +1,28 @@
+package yhxt;
+import java.util.Scanner;
+public class Zhs {
+	public static void main(String[] args) {
+		/*Scanner x=new Scanner(System.in);
+		String x1=x.next();*/
+		Bank.yhmc="旺财银行";
+		Bank.hy();
+		Scanner x=new Scanner(System.in);
+		System.out.println("请输入开户人：");
+		String x1=x.next();
+		System.out.println("请输入开户密码：");
+		String x2=x.next();
+		System.out.println("请输入开户预存：");
+		double x3=x.nextInt();
+		Bank bank=new Bank(x1,x2,x3);
+		System.out.println("请输入存款数：");
+		double x4=x.nextInt();
+		bank.ck(x4);
+		System.out.println("请输入密码：");
+		String x5=x.next();
+		System.out.println("请输入取款数：");
+		double x6=x.nextInt();
+		bank.qk(x5,x6);
+		Bank.gun();
+	}
+
+}
